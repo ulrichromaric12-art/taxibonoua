@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+// useCallback importé depuis React — pas de redéclaration nécessaire
 
 const SUPABASE_URL  = "https://usinhlxehcaiqvyyqixq.supabase.co";
 const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVzaW5obHhlaGNhaXF2eXlxaXhxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1MDE1NzMsImV4cCI6MjA5ODA3NzU3M30.eXPpIbjJqfaaFljM-dlJ-yAVe1PKy1AIVXs7jEkkVFc";
@@ -599,7 +600,6 @@ function RegisterFlow({ go, notify }) {
 
 // ── UI ATOMS ──────────────────────────────────────────────────
 const btnBase={width:"100%",padding:"15px 0",border:"none",borderRadius:14,fontSize:15,fontWeight:800,cursor:"pointer"};
-function useCallback(fn,deps){return fn;}
 function Wrap({children}){return <div style={{padding:"0 18px 100px",minHeight:"100vh"}}>{children}</div>;}
 function Bar({title,onBack,right}){return(<div style={{display:"flex",alignItems:"center",padding:"22px 0 18px",position:"sticky",top:0,background:`${C.night}F5`,backdropFilter:"blur(12px)",zIndex:10,borderBottom:`1px solid ${C.border}`}}><button onClick={onBack} style={{background:"#ffffff0E",border:"none",borderRadius:10,width:36,height:36,cursor:"pointer",color:C.white,fontSize:20,display:"flex",alignItems:"center",justifyContent:"center",marginRight:14,flexShrink:0}}>‹</button><p style={{fontWeight:800,fontSize:18,flex:1,margin:0}}>{title}</p>{right}</div>);}
 function Box({title,children,style}){return(<div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:18,padding:18,marginBottom:14,...style}}>{title&&<p style={{fontWeight:700,fontSize:11,color:C.sub,textTransform:"uppercase",letterSpacing:1.2,margin:"0 0 14px"}}>{title}</p>}{children}</div>);}
